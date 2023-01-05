@@ -17,7 +17,7 @@ account_sid = os.getenv('SID')
 auth_token = os.getenv('AUTH_TOKEN')
 client = Client(account_sid, auth_token)
 
-# School CCID and Pass
+# School User and Pass
 username = os.getenv('USER') 
 password = os.getenv('PASSWORD') 
 
