@@ -47,11 +47,6 @@ print("Waiting for webpage to load...")
 WebDriverWait(driver=driver, timeout=20).until(
     lambda x: x.execute_script("return document.readyState === 'complete'")
 )
-print("Logged in!")
-
-WebDriverWait(driver=driver, timeout=20).until(
-    lambda x: x.execute_script("return document.readyState === 'complete'")
-)
 
 try: 
     # If there happens to be an error (this one specifically is "Cookies are not enabled" error), then retry login)
@@ -68,8 +63,9 @@ try:
 except:
     print("No error message")
 
+print("Logged in!")
 # Wait for webpage to load properly
-time.sleep(5)
+time.sleep(7)
 driver.find_element(By.XPATH, "/html/body/form/div[2]/div[4]/div[1]/div/div[2]/div[1]/div/div/div/div/div/div/div[1]/section/ul/li[2]/div[1]/div/span/a").click()
 print("Shopping Cart")
 
@@ -78,10 +74,10 @@ while (True):
     # Trying to get status of specified class, otherwise error has occurred and script exits
     try:
         status = driver.find_element(By.XPATH, "/html/body/form/div[2]/div[4]/div[2]/div/div/div/div/div/div/div[3]/div[4]/div/div[1]/div/div[1]/div[1]/div[2]/div/div/table/tbody/tr[1]/td[2]/div/div/span").text.lower()
-    except:
+    except Exception as e:
         message = client.messages \
                         .create(
-                            body="An error has occurred.",
+                            body="An error has occured: \n"+ e,
                             from_='+13512228493',
                             to='+17806959160'
                         )
@@ -106,7 +102,7 @@ while (True):
     #                         to='+17806959160'
     #                     )
     #     print(message.sid)
-    ref_time = random.randint(600, 1200) # Refreshes the webpage every 10-20 minutes
+    ref_time = random.randint(420, 1020) # Refreshes the webpage every 7-17 minutes
     time.sleep(ref_time)
     driver.refresh()
     print("Refreshing page")
