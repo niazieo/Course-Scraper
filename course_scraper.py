@@ -73,6 +73,7 @@ while (True):
     time.sleep(5)
     # Trying to get status of specified class, otherwise error has occurred and script exits
     try:
+        # Inspect element and get the XPATH of the status of the course you want to get into
         status = driver.find_element(By.XPATH, "/html/body/form/div[2]/div[4]/div[2]/div/div/div/div/div/div/div[3]/div[4]/div/div[1]/div/div[1]/div[1]/div[2]/div/div/table/tbody/tr[1]/td[2]/div/div/span").text.lower()
     except Exception as e:
         message = client.messages \
