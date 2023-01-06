@@ -109,4 +109,4 @@ while (True):
     time.sleep(ref_time)
     now = datetime.now().strftime("%H:%M:%S")
     driver.refresh()
-    print(f"Refreshing page at : {now} MST")
+    print(f"Refreshing page at: {now} MST")
