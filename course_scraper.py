@@ -79,7 +79,7 @@ while (True):
     except Exception as e:
         message = client.messages \
                         .create(
-                            body="An error has occured: \n"+ e,
+                            body="An error has occured",
                             from_='+13512228493',
                             to='+17806959160'
                         )
