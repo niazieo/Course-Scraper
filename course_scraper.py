@@ -2,6 +2,7 @@ import time
 import os
 import random
 from dotenv import load_dotenv
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -93,6 +94,7 @@ while (True):
                             to='+17806959160'
                         )
         print(message.sid)
+        driver.quit()
     # This part is unnecessary
     # elif status == "full":
     #     #Send text via Twilio
@@ -105,5 +107,6 @@ while (True):
     #     print(message.sid)
     ref_time = random.randint(420, 1020) # Refreshes the webpage every 7-17 minutes
     time.sleep(ref_time)
+    now = datetime.now().strftime("%H:%M:%S")
     driver.refresh()
-    print("Refreshing page")
+    print(f"Refreshing page at : {now} MST")
