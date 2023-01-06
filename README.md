@@ -4,3 +4,4 @@
  Requirements:
  * School account
  * Twilio account
+ * Chrome driver (or driver for whatever browser you want to use)
